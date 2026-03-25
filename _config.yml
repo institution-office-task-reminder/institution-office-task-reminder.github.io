@@ -1,0 +1,10 @@
+# GitHub Pages configuration for Institution Office Task Reminder website
+# This disables Jekyll so HTML/CSS/JS files are served as-is.
+# No Jekyll processing — just static file serving.
+
+# Site metadata
+title: "Institution Office Task Reminder"
+description: "Smart task management, reminders, and institutional workflow coordination for colleges, offices, and organizations."
+
+# Disable Jekyll theme (we're using custom CSS)
+theme: null

@@ -1,0 +1,8 @@
+# robots.txt for Institution Office Task Reminder
+# https://institution-office-task-reminder.github.io/
+
+User-agent: *
+Allow: /
+
+# Point to the sitemap
+Sitemap: https://institution-office-task-reminder.github.io/sitemap.xml
