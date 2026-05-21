@@ -4,7 +4,7 @@
 
 # Site metadata
 title: "Institution Office Task Reminder"
-description: "Smart task management, reminders, and institutional workflow coordination for colleges, offices, and organizations."
+description: "Institutional task management with native Bangla Unicode support, cloud file attachments, and automated reminders for colleges and offices."
 
 # Disable Jekyll theme (we're using custom CSS)
 theme: null

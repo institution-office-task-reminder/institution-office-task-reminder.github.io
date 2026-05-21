@@ -1,207 +1,718 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Guide | Institution Office Task Reminder – Interactive Documentation</title>
+    <meta name="description" content="Read the comprehensive, interactive user guide for the Institution Office Task Reminder. Step-by-step instructions for installation, task management, role setup, and sync configurations.">
+    <meta name="author" content="Himadri Biswas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://institution-office-task-reminder.github.io/guide.html">
 
-  <!-- ══ Primary SEO ══ -->
-  <title>User Guide | Institution Office Task Reminder – Bangla &amp; English Documentation</title>
-  <meta name="description" content="Download the Institution Office Task Reminder user guide in Bangla or English. Step-by-step instructions for installation, task management, role setup, and license import.">
-  <meta name="author" content="Himadri Biswas">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://institution-office-task-reminder.github.io/guide.html">
+    <!-- ══ Open Graph ══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Institution Office Task Reminder">
+    <meta property="og:url" content="https://institution-office-task-reminder.github.io/guide.html">
+    <meta property="og:title" content="User Guide – Institution Office Task Reminder">
+    <meta property="og:description" content="Interactive English documentation for institutional task management software. Features dynamic sidebar navigation, setup wizard guides, and custom search reference.">
+    <meta property="og:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
 
-  <!-- ══ Open Graph ══ -->
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Institution Office Task Reminder">
-  <meta property="og:url" content="https://institution-office-task-reminder.github.io/guide.html">
-  <meta property="og:title" content="User Guide – Institution Office Task Reminder">
-  <meta property="og:description" content="PDF user guides available in Bangla and English for institutional task management software. Includes quick-start tips and common task reference.">
-  <meta property="og:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
+    <!-- ══ Twitter Card ══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="User Guide – Institution Office Task Reminder">
+    <meta name="twitter:description" content="Interactive English documentation for institutional task management software. Features dynamic sidebar navigation, setup wizard guides, and custom search reference.">
+    <meta name="twitter:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
 
-  <!-- ══ Twitter Card ══ -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="User Guide – Institution Office Task Reminder">
-  <meta name="twitter:description" content="PDF user guides available in Bangla and English for institutional task management software. Includes quick-start tips and common task reference.">
-  <meta name="twitter:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
+    <!-- ══ Favicon & Icons ══ -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
 
-  <!-- ══ Favicon & Icons ══ -->
-  <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
-  <link rel="apple-touch-icon" href="assets/images/logo.png">
+    <!-- ══ SEO Multi-Language Headers ══ -->
+    <link rel="alternate" hreflang="en" href="https://institution-office-task-reminder.github.io/guide.html">
+    <link rel="alternate" hreflang="bn" href="https://institution-office-task-reminder.github.io/guide-bn.html">
+    <link rel="alternate" hreflang="x-default" href="https://institution-office-task-reminder.github.io/guide.html">
 
-  <!-- ══ Stylesheet ══ -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- ══ JSON-LD Structured Data ══ -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebPage",
-    "name": "User Guide | Institution Office Task Reminder",
-    "description": "Comprehensive guide for using Institution Office Task Reminder. Learn about installation, task management, and sync setup.",
-    "breadcrumb": {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://institution-office-task-reminder.github.io/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "User Guide",
-          "item": "https://institution-office-task-reminder.github.io/guide.html"
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
         }
-      ]
-    }
-  }
-  </script>
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply text-slate-800 bg-slate-50/50 antialiased; }
+            h1, h2, h3, h4, h5 { @apply font-extrabold tracking-tight text-slate-900; }
+        }
+        @layer components {
+            .section-card { @apply bg-white rounded-3xl shadow-sm border border-slate-200 p-8 lg:p-12 mb-12 scroll-mt-24 transition-all hover:shadow-md hover:border-blue-200; }
+            .nav-item { @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200; }
+            .nav-item.active { @apply bg-blue-600 text-white shadow-lg shadow-blue-200; }
+            .nav-item.inactive { @apply text-slate-500 hover:bg-slate-100 hover:text-slate-900; }
+            .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider; }
+            .list-bullet { @apply flex items-start gap-3 mb-4 leading-relaxed; }
+            .list-bullet i { @apply mt-1 text-blue-500 shrink-0; }
+            .step-box { @apply p-6 bg-slate-50 rounded-2xl border border-slate-200 mb-6; }
+            .step-head { @apply text-blue-600 font-black text-xs uppercase tracking-[0.2em] mb-2 block; }
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .section-card { border: none !important; box-shadow: none !important; padding: 0 !important; margin-bottom: 4rem !important; }
+            .page-break { page-break-before: always; }
+            body { background: white !important; }
+        }
+    </style>
 </head>
 <body>
 
-  <div id="nav-placeholder"></div>
+    <div class="flex min-h-screen relative">
+        <!-- MOBILE MENU TRIGGER -->
+        <div class="lg:hidden fixed top-4 right-4 z-50 no-print">
+            <button id="mobile-menu-btn" class="p-3 bg-blue-600 text-white rounded-2xl shadow-xl shadow-blue-500/40 active:scale-95 transition-transform">
+                <i data-lucide="menu" id="menu-icon"></i>
+                <i data-lucide="x" id="close-icon" class="hidden"></i>
+            </button>
+        </div>
 
-  <main id="main-content">
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="no-print fixed lg:sticky top-0 inset-y-0 left-0 z-40 w-80 bg-white border-r border-slate-200 h-screen p-8 transition-transform duration-300 -translate-x-full lg:translate-x-0 flex flex-col">
+            <a href="index.html" class="flex items-center gap-4 mb-6 hover:opacity-85 transition-opacity">
+                <div class="p-2.5 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-base leading-none text-slate-900 font-extrabold">Office Task</h1>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-1">v2.0.5.0</p>
+                </div>
+            </a>
 
-  <!-- ══ PAGE HEADER ════════════════════════════════════════ -->
-  <header class="page-header">
-    <div class="container">
-      <span class="subtitle" style="color:rgba(255,255,255,0.7);display:block;margin-bottom:8px">Documentation</span>
-      <h1>User Guide</h1>
-      <p>Learn how to use Institution Office Task Reminder effectively in your institution</p>
+            <!-- Language Toggle -->
+            <div class="flex items-center justify-between px-4 py-2.5 mb-6 bg-slate-50 rounded-xl border border-slate-200 text-xs font-semibold no-print">
+                <span class="text-slate-500">Language:</span>
+                <div class="flex gap-2">
+                    <span class="text-blue-600 font-extrabold flex items-center gap-1">🇺🇸 EN</span>
+                    <span class="text-slate-300">|</span>
+                    <a href="guide-bn.html" class="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1">🇧🇩 BN</a>
+                </div>
+            </div>
+
+            <!-- Back to Site -->
+            <div class="mb-4 no-print">
+                <a href="index.html" class="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> Back to Website
+                </a>
+            </div>
+
+            <nav class="flex-1 space-y-1 overflow-y-auto pr-2 custom-scrollbar" id="nav-container">
+                <a href="#introduction" class="nav-item active" data-section="introduction"><i data-lucide="info" class="w-4 h-4"></i> Introduction</a>
+                <a href="#features" class="nav-item inactive" data-section="features"><i data-lucide="zap" class="w-4 h-4"></i> Key Features</a>
+                <a href="#requirements" class="nav-item inactive" data-section="requirements"><i data-lucide="terminal" class="w-4 h-4"></i> Requirements</a>
+                <a href="#setup" class="nav-item inactive" data-section="setup"><i data-lucide="settings" class="w-4 h-4"></i> First-Time Setup</a>
+                <a href="#licensing" class="nav-item inactive" data-section="licensing"><i data-lucide="shield-check" class="w-4 h-4"></i> Licensing</a>
+                <a href="#structure" class="nav-item inactive" data-section="structure"><i data-lucide="database" class="w-4 h-4"></i> Sheet Structure</a>
+                <a href="#roles" class="nav-item inactive" data-section="roles"><i data-lucide="users" class="w-4 h-4"></i> Roles & Sync</a>
+                <a href="#telegram" class="nav-item inactive" data-section="telegram"><i data-lucide="send" class="w-4 h-4"></i> Telegram</a>
+                <a href="#reminders" class="nav-item inactive" data-section="reminders"><i data-lucide="bell" class="w-4 h-4"></i> Reminders</a>
+                <a href="#automation" class="nav-item inactive" data-section="automation"><i data-lucide="cloud" class="w-4 h-4"></i> Automation</a>
+                <a href="#operation" class="nav-item inactive" data-section="operation"><i data-lucide="mouse-pointer-2" class="w-4 h-4"></i> Operation</a>
+                <a href="#troubleshooting" class="nav-item inactive" data-section="troubleshooting"><i data-lucide="help-circle" class="w-4 h-4"></i> Troubleshooting</a>
+                <a href="#security" class="nav-item inactive" data-section="security"><i data-lucide="lock" class="w-4 h-4"></i> Best Practices</a>
+                <a href="#support" class="nav-item inactive" data-section="support"><i data-lucide="phone" class="w-4 h-4"></i> Support</a>
+            </nav>
+
+            <div class="mt-8 pt-8 border-t border-slate-100">
+                <button onclick="window.print()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold shadow-xl shadow-slate-900/20 hover:scale-[1.02] transition-transform active:scale-95">
+                    <i data-lucide="printer" class="w-4 h-4"></i> Print PDF
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="flex-1 px-6 lg:px-16 py-12 lg:py-24 max-w-5xl mx-auto overflow-hidden">
+            
+            <!-- HEADER / COVER -->
+            <header class="mb-32 text-center">
+                <div class="badge bg-blue-100 text-blue-700 mb-8">Official Documentation</div>
+                <h1 class="text-5xl lg:text-7xl mb-6 leading-tight">INSTITUTION OFFICE <br /> <span class="text-blue-600 tracking-tighter">TASK REMINDER</span></h1>
+                <p class="text-xl text-slate-500 font-medium max-w-2xl mx-auto mb-12">User Guide Version 2.0.5.0</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-16">
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Smart Mode</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Telegram Automation</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Daily Reminders</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Cloud Triggers</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Built-in Trial</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">Signed Licensing</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm text-left">
+                        <label class="step-head">Developer</label>
+                        <h3 class="text-2xl mb-1">Himadri Biswas</h3>
+                        <p class="text-slate-500 text-sm font-medium mb-6">Software Architect</p>
+                        <div class="space-y-3">
+                            <a href="tel:+8809696196566" class="flex items-center gap-3 text-sm font-bold text-blue-600 hover:underline"><i data-lucide="phone" class="w-4 h-4"></i> +880 9696 196566</a>
+                            <a href="mailto:himadribiswas87@gmail.com" class="flex items-center gap-3 text-sm font-bold text-blue-600 hover:underline"><i data-lucide="mail" class="w-4 h-4"></i> himadribiswas87@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-8 rounded-[2.5rem] text-white text-left shadow-2xl shadow-slate-900/40 translate-y-4">
+                        <label class="step-head !text-blue-400">Document Information</label>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Software Name</p>
+                                <p class="font-bold">Institution Office Task Reminder</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Current Version</p>
+                                <p class="font-bold font-mono text-blue-400">2.0.5.0</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">Target Users</p>
+                                <p class="text-xs font-medium text-slate-300">Institutions, Schools, Colleges, Administrative Staff</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. INTRODUCTION -->
+            <section id="introduction" class="section-card">
+                <h2 class="text-3xl mb-8 flex items-center gap-4"><i data-lucide="info" class="w-8 h-8 text-blue-600"></i> 1. Introduction</h2>
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed font-medium">Institution Office Task Reminder is a professional desktop-based task management and reminder system designed for offices, schools, colleges, and institutions.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 mb-10">
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-6">Management Scope</h4>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>Deadlines:</strong> Keep track of critical completion dates.</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>Follow-up:</strong> Track activity progression.</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>Daily Reminders:</strong> Automated notification cycle.</span></div>
+                    </div>
+                    <div class="space-y-4 pt-4 md:pt-0">
+                        <div class="list-bullet md:mt-11"><i data-lucide="check-circle-2"></i> <span><strong>Overdue tracking:</strong> Visual indicators for missed tasks.</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>Staff coordination:</strong> Multi-user shared environment.</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>Workflows:</strong> Systematic task lifecycle management.</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                    <h4 class="text-amber-900 font-bold mb-4 flex items-center gap-2 italic"><i data-lucide="alert-circle"></i> Important Notes</h4>
+                    <ul class="space-y-2 text-sm text-amber-800 font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> Telegram integration is outgoing-only</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> No incoming command polling (/pending, /status)</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> System sends automated reminders and summaries</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> Multi-user synchronization is fully supported</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. KEY FEATURES -->
+            <section id="features" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="zap" class="w-8 h-8 text-blue-600"></i> 2. Key Features</h2>
+                
+                <div class="space-y-16">
+                    <div>
+                        <h3 class="subsection-title">Productivity Core</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="layout" class="text-blue-500"></i> Modern Summary Dashboard</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="filter" class="text-blue-500"></i> Smart categorization & filtering</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="calendar" class="text-blue-500"></i> Deep-link Calendar navigation</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="refresh-cw" class="text-blue-500"></i> Auto cloud synchronization</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="user-check" class="text-blue-500"></i> Role-based access control</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="clock" class="text-blue-500"></i> Overdue management</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="upload-cloud" class="text-blue-500"></i> Auto Drive File Uploads</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="languages" class="text-blue-500"></i> Native Bangla Unicode Support</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="download" class="text-blue-500"></i> Advanced CSV Export</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="subsection-title">Cloud & Setup</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="terminal" class="text-slate-400"></i> Smart Mode (Apps Script)</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="mouse-pointer" class="text-slate-400"></i> Built-in Setup Wizard</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="activity" class="text-slate-400"></i> Connection testing</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="share" class="text-slate-400"></i> Setup details sharing</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="subsection-title">Institution Management</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>Configuration directly from UI</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>Custom application branding</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>Session/year management</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>Adjustable upcoming task window</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. SYSTEM REQUIREMENTS -->
+            <section id="requirements" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="terminal" class="w-8 h-8 text-blue-600"></i> 3. Requirements</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-6">
+                        <label class="step-head">Minimum</label>
+                        <p class="text-sm font-bold text-slate-700">Windows PC</p>
+                        <p class="text-xs text-slate-500 font-medium">1366×768 or higher resolution</p>
+                        <p class="text-xs text-slate-500 font-medium">Stable internet connection</p>
+                        <p class="text-xs text-slate-500 font-medium">Access to Google Sheets</p>
+                    </div>
+                    <div class="space-y-6">
+                        <label class="step-head">Optional</label>
+                        <p class="text-sm font-bold text-slate-700">Telegram Bot Token</p>
+                        <p class="text-xs text-slate-500 font-medium">Multi-user cloud environment</p>
+                    </div>
+                    <div class="space-y-6">
+                        <label class="step-head">Recommended</label>
+                        <p class="text-sm font-bold text-slate-700">Windows 10 / 11</p>
+                        <p class="text-xs text-slate-500 font-medium">Broadband internet</p>
+                        <p class="text-xs text-slate-500 font-medium">Dedicated Google account</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. FIRST-TIME SETUP -->
+            <section id="setup" class="section-card overflow-hidden">
+                <h2 class="text-3xl mb-6 flex items-center gap-4"><i data-lucide="settings" class="w-8 h-8 text-blue-600"></i> 4. First-Time Setup</h2>
+                <p class="text-slate-600 mb-12 font-medium">The professional Setup Wizard simplifies initial configuration for administrators.</p>
+
+                <div class="relative pl-10 border-l-2 border-slate-100 space-y-12">
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold ring-8 ring-white">1</div>
+                        <h4 class="font-bold text-lg mb-2">Create Google Sheet</h4>
+                        <p class="text-sm text-slate-500">Initialize a new or existing institutional task database.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">2</div>
+                        <h4 class="font-bold text-lg mb-2">Open Apps Script</h4>
+                        <p class="text-sm text-slate-500 font-mono">Extensions &rarr; Apps Script</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">3</div>
+                        <h4 class="font-bold text-lg mb-2">Deploy Web App</h4>
+                        <p class="text-sm text-slate-500">Deploy as Web App, Execute as "Me", Access "Anyone".</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">4</div>
+                        <h4 class="font-bold text-lg mb-2">Connect Desktop</h4>
+                        <p class="text-sm text-slate-500">Paste Apps Script URL and Security Token into the app Settings.</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">5</div>
+                        <h4 class="font-bold text-lg mb-2">Test & Finalize</h4>
+                        <p class="text-sm text-slate-500">Use "Test Connection", configure branding, and start synchronization.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. TRIAL AND LICENSING -->
+            <section id="licensing" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="shield-check" class="w-8 h-8 text-blue-600"></i> 5. Trial & Licensing</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-blue-50/50 p-8 rounded-3xl border border-blue-100">
+                        <h3 class="text-xl text-blue-900 mb-6 flex items-center gap-2"><i data-lucide="clock"></i> 15-Day Trial</h3>
+                        <p class="text-sm font-bold text-blue-800 mb-6">Automated start for new installs.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>Full functionality access</span></div>
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>Cloud sync active</span></div>
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>Telegram enabled</span></div>
+                        </div>
+                        <div class="p-4 bg-white/60 rounded-xl border border-blue-200">
+                            <p class="text-[10px] font-black uppercase text-blue-400 mb-1">After Expiry</p>
+                            <p class="text-xs text-blue-900 font-bold leading-tight">Software switches to read-only restricted mode. License required for full operation.</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-8 rounded-3xl text-white shadow-xl shadow-slate-900/30">
+                        <h3 class="text-xl text-blue-400 mb-6 flex items-center gap-2"><i data-lucide="award"></i> Signed License</h3>
+                        <p class="text-sm font-bold text-slate-300 mb-6">Secure commercial validation.</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="shield" class="w-4 h-4 text-blue-500"></i> Tamper-resistant</li>
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="users" class="w-4 h-4 text-blue-500"></i> Institutional licensing</li>
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="smartphone" class="w-4 h-4 text-blue-500"></i> Device-based activation</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. SHEET STRUCTURE -->
+            <section id="structure" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="database" class="w-8 h-8 text-blue-600"></i> 6. Sheet Structure</h2>
+                <p class="text-slate-500 font-medium mb-12 italic">The system automatically maintains required sheets. Manual editing is not advised.</p>
+
+                <div class="space-y-8">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold text-lg">Task Sheet — Task</h4>
+                            <span class="badge bg-green-100 text-green-700">Primary Database</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-4">Fields</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">ID</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Category</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Class/Year</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Task Title</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Issue Date</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Deadline</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Status</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Responsible</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Remarks</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Source Link</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">Added By</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 border border-slate-100 rounded-2xl">
+                            <h5 class="font-bold mb-2">Config</h5>
+                            <p class="text-xs text-slate-500 font-medium">Institution branding and dropdown settings.</p>
+                        </div>
+                        <div class="p-6 border border-slate-100 rounded-2xl">
+                            <h5 class="font-bold mb-2">Staff_Contacts</h5>
+                            <p class="text-xs text-slate-500 font-medium">Telegram Chat IDs linked to names.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. ROLES & MULTI-USER -->
+            <section id="roles" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="users" class="w-8 h-8 text-blue-600"></i> 7. Roles & Sync</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="p-6 bg-slate-900 rounded-3xl text-white">
+                        <h4 class="font-black text-blue-400 text-xs uppercase tracking-widest mb-6">Admin</h4>
+                        <p class="text-sm font-bold opacity-80 leading-relaxed">Full access, Automation triggers, & Cloud config.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl">
+                        <h4 class="font-black text-blue-600 text-xs uppercase tracking-widest mb-6">Editor</h4>
+                        <p class="text-sm font-bold text-slate-600 leading-relaxed">Create and edit tasks & status updates.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl">
+                        <h4 class="font-black text-slate-400 text-xs uppercase tracking-widest mb-6">Viewer</h4>
+                        <p class="text-sm font-bold text-slate-400 leading-relaxed">Read-only monitoring of task progression.</p>
+                    </div>
+                </div>
+                <div class="p-8 bg-blue-600 rounded-[2rem] text-white">
+                    <h4 class="font-bold mb-4 flex items-center gap-3">7.1 Multi-User Deployment</h4>
+                    <p class="text-sm font-medium text-blue-100 mb-6 leading-relaxed">Provide additional staff with the Installer, Apps Script URL, and Security Token. Ensure each user sets a unique "Display Name" in Settings for transparent task tracking.</p>
+                </div>
+            </section>
+
+            <!-- 8. TELEGRAM -->
+            <section id="telegram" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="send" class="w-8 h-8 text-blue-600"></i> 8. Telegram Automation</h2>
+                <div class="card p-0 overflow-hidden mb-0">
+                    <div class="bg-blue-600 p-8 text-white relative">
+                        <i data-lucide="message-circle" class="absolute right-8 top-8 w-16 h-16 opacity-10"></i>
+                        <label class="step-head !text-blue-200">8.1 Management</label>
+                        <h3 class="text-2xl mb-4">Centralized Bot Control</h3>
+                        <p class="text-sm text-blue-100 font-medium leading-relaxed max-w-xl">Admins securely push Telegram Bot Tokens directly to Apps Script Properties via the Desktop UI, keeping credentials out of public cells.</p>
+                    </div>
+                    <div class="p-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                        <div>
+                            <h4 class="font-bold mb-4">Supported Alerts</h4>
+                            <div class="space-y-3">
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="share-2" class="w-4 h-4"></i> Assignments</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="repeat" class="w-4 h-4"></i> Status Updates</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="check" class="w-4 h-4"></i> Completions</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="list" class="w-4 h-4"></i> Deadline Summaries</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">8.2 Contact Mapping & Setup</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6">Use **Manage Contacts** in Cloud settings to link staff names with their unique Telegram Chat IDs.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
+                                    <h5 class="text-xs font-black uppercase tracking-widest text-blue-600 mb-3">How to create a Bot</h5>
+                                    <ol class="text-xs font-bold text-blue-900 space-y-2 list-decimal pl-4">
+                                        <li>Search for <strong>@BotFather</strong> on Telegram.</li>
+                                        <li>Send <code>/newbot</code> and follow instructions.</li>
+                                        <li>Copy the <strong>API Token</strong> provided at the end.</li>
+                                        <li>Paste this Token into the app's Cloud settings.</li>
+                                    </ol>
+                                </div>
+                                <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                                    <h5 class="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">How to find Chat ID</h5>
+                                    <ol class="text-xs font-bold text-slate-700 space-y-2 list-decimal pl-4">
+                                        <li>Search for <strong>@GetMyID_Bot</strong> on Telegram.</li>
+                                        <li>Start the bot to see your numeric <strong>Chat ID</strong>.</li>
+                                        <li>Add this ID to <strong>Manage Contacts</strong> for each user.</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 bg-amber-50 p-6 rounded-2xl border border-amber-100">
+                                <label class="step-head !text-amber-600">Security Pre-requisite</label>
+                                <p class="text-xs font-bold text-amber-900 leading-relaxed italic">Automation features require a valid signed license and enabled device activation.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. REMINDERS -->
+            <section id="reminders" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="bell" class="w-8 h-8 text-blue-600"></i> 9. Reminders</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm transition-all hover:bg-white">
+                        <div class="shrink-0 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white"><i data-lucide="alarm-clock"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">9.1 Daily Deadline Summary</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-4">Automated summaries for tasks due within 0-3 days. Excludes overdue and completed items.</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm transition-all hover:bg-white">
+                        <div class="shrink-0 w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white"><i data-lucide="clock"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">9.2 Multiple Schedules & Catch-up</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">Configure up to 3 daily reminder slots. The **Catch-up window** ensures that if the app is opened slightly late, missed notifications are still triggered.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. AUTOMATION -->
+            <section id="automation" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="cloud" class="w-8 h-8 text-blue-600"></i> 10. Cloud Automation</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm">
+                        <h3 class="text-blue-600 font-bold mb-6 italic">10.1 Automation Setup</h3>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">One-Click Install</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="calendar" class="w-5 h-5 text-blue-500"></i> Daily reminder trigger</li>
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="refresh-cw" class="w-5 h-5 text-blue-500"></i> Weekly maintenance trigger</li>
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="archive" class="w-5 h-5 text-blue-500"></i> Weekly archive trigger (90-day old tasks)</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200">
+                        <h4 class="font-bold mb-4">10.2 Manual Testing</h4>
+                        <div class="space-y-2">
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">Run Daily Reminders Now</button>
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">Run Maintenance Now</button>
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">Run Archive Now</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. OPERATION -->
+            <section id="operation" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="mouse-pointer-2" class="w-8 h-8 text-blue-600"></i> 11. Day-to-Day Operation</h2>
+                <div class="space-y-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">11.1 Synchronization</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Configure intervals (10s to 30 mins) in Settings &rarr; General for background updates. Manual sync available via "Sync Now".</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">11.2 Conflict Resolution</h4>
+                            <div class="bg-red-50 border border-red-100 p-4 rounded-xl text-xs font-bold text-red-900 leading-tight">
+                                System detects multi-user collisions. Options: "Keep Offline Edit", "Overwrite with Server", or "Restore As New Task".
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">11.3 File Attachments</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Use the "Browse..." button in the Add Task dialog to select local files. The software automatically uploads them to Google Drive and saves the cloud link.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">11.4 Bangla Unicode Support</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Native support for Bijoy and Avro Unicode typing is enabled by default. No special configuration is required for typing in Bengali.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h4 class="font-bold mb-4">11.5 Task Views</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">Today</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">Upcoming</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">Overdue</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">Active</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">Completed</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">11.6 Data Export</h4>
+                            <p class="text-xs font-medium text-slate-600 leading-relaxed">Use the "Export" button in the toolbar to save the current table view as a CSV file. Filter by date range or responsible person before exporting.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">11.7 Branding & Identity</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Upload your **Institution Logo (PNG)** and set a custom name in Settings &rarr; Branding. You can choose to apply this branding to the application header or the window title.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">11.8 Administrative Controls</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Admins can update global configurations such as **Categories**, **Importance levels**, **Current Session**, and the **Default Responsible person** via the Institution tab.</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                         <div>
+                            <h4 class="font-bold mb-4">11.9 General Settings</h4>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 leading-none italic">Manage startup & branding</p>
+                            <p class="text-xs font-medium text-slate-600 leading-relaxed">Configure Auto-Sync, **Start on Boot**, and **Start Minimized to Tray** directly from the UI for a seamless background experience.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">11.10 User Display Name</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">Set a unique **Display Name** in General settings. This helps track which specific user or department added or updated a task in the audit logs.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 13. TROUBLESHOOTING -->
+            <section id="troubleshooting" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="help-circle" class="w-8 h-8 text-blue-600"></i> 13. Troubleshooting</h2>
+                <div class="space-y-4">
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> Connection Test Fails
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">Verify the Apps Script deployment URL and Security Token. Ensure "Access: Anyone" was selected during deployment.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> Telegram Message Not Sent
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">Ensure the Chat ID is mapped correctly in Staff Contacts and the Bot Token is pushed to Script Properties.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> Sync Conflict Detected
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">This occurs when two users edit the same task simultaneously. Choose "Overwrite with Server" to discard local changes, or "Restore As New" to keep both versions.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> Action Requires Device Activation
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">This means your 15-day trial has expired or you are on a new device. Contact support to obtain a signed license file for full access.</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> File Upload Timeout
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">Large files may timeout on slow networks. The system now uses chunked uploads, but ensure your internet connection is stable during the process.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 14. BEST PRACTICES -->
+            <section id="security" class="section-card !bg-slate-900 border-none !text-white">
+                <h2 class="text-3xl mb-12 flex items-center gap-4 !text-white"><i data-lucide="lock" class="w-8 h-8 text-blue-400"></i> 14. Best Practices</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Use Setup Wizard for all deployments.</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Restrict Admin access to one computer.</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Enable automatic synchronization (5-15 mins).</li>
+                    </ul>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Keep Bot Tokens restricted to Script Properties.</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Use consistent task Statuses across teams.</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> Protect the original signed license files.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 15. SUPPORT -->
+            <section id="support" class="section-card mb-32">
+                <div class="bg-white rounded-[3rem] p-12 border border-slate-200 shadow-xl shadow-blue-900/5 text-center relative overflow-hidden">
+                    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+                    <h2 class="text-3xl mb-4">Official Product Support</h2>
+                    <p class="text-slate-500 font-medium mb-10 max-w-sm mx-auto">Get technical assistance for licensing, cloud deployment, and Smart Mode setup.</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-10 mb-16">
+                        <div class="text-left bg-slate-50 px-8 py-4 rounded-2xl border border-slate-100">
+                            <p class="text-[10px] font-black uppercase text-slate-400 mb-1">Architect</p>
+                            <p class="font-extrabold text-slate-900">Himadri Biswas</p>
+                        </div>
+                        <div class="text-left bg-slate-50 px-8 py-4 rounded-2xl border border-slate-100">
+                            <p class="text-[10px] font-black uppercase text-slate-400 mb-1">Support Phone</p>
+                            <p class="font-extrabold text-blue-600">+880 9696 196566</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pb-12">
+                        <span>Installation</span>
+                        <span>Smart Setup</span>
+                        <span>Telegram Bot</span>
+                        <span>Licensing</span>
+                    </div>
+
+                    <div class="pt-8 border-t border-slate-100 text-[11px] font-black text-slate-300 uppercase tracking-[0.6em]">
+                        Office Solution Systems &bull; 2026
+                    </div>
+                </div>
+            </section>
+
+        </main>
     </div>
-  </header>
 
-  <!-- ══ GUIDE DOWNLOADS ════════════════════════════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="subtitle">PDF Guides</span>
-        <h2>Download the User Guide</h2>
-        <p>User guides are available in both Bangla and English. If you are a first-time user, we recommend reading the guide before deploying the software in your institution.</p>
-      </div>
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
 
-      <div class="guide-cards">
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
 
-        <!-- Bangla Guide -->
-        <div class="guide-card reveal">
-          <div class="guide-icon" aria-hidden="true">📖</div>
-          <h3>User Guide (বাংলা)</h3>
-          <p>সম্পূর্ণ বাংলায় ব্যবহারকারী গাইড। ইনস্টলেশন, টাস্ক যোগ করা, ড্যাশবোর্ড ব্যবহার এবং লাইসেন্স ইম্পোর্ট সহ সব বিস্তারিত।</p>
-          <!-- Replace href with your actual PDF path -->
-          <a href="assets/downloads/user-guide-bn.pdf"
-             class="btn btn-primary btn-lg"
-             download
-             aria-label="Download Bangla user guide PDF">
-            📥 Download PDF (বাংলা)
-          </a>
-        </div>
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
 
-        <!-- English Guide -->
-        <div class="guide-card reveal">
-          <div class="guide-icon" aria-hidden="true">📗</div>
-          <h3>User Guide (English)</h3>
-          <p>Complete English user guide covering installation, adding tasks, dashboard usage, role setup, and license import with step-by-step instructions.</p>
-          <!-- Replace href with your actual PDF path -->
-          <a href="assets/downloads/user-guide-en.pdf"
-             class="btn btn-primary btn-lg"
-             download
-             aria-label="Download English user guide PDF">
-            📥 Download PDF (English)
-          </a>
-        </div>
+        // Close sidebar on link click (mobile)
+        const navLinks = document.querySelectorAll('.nav-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+        });
 
-      </div>
+        // Scrollspy
+        const links = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('section');
 
-    </div>
-  </section>
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
 
-  <!-- ══ QUICK START TIPS ════════════════════════════════════ -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header text-center">
-        <span class="subtitle">Getting Started</span>
-        <h2>Quick Start Guide</h2>
-        <p>Follow these steps to start using the software immediately after installation.</p>
-      </div>
-
-      <div class="steps-simple" style="max-width:680px;margin:0 auto">
-        <div class="step-simple">
-          <p><strong>Install the software</strong> — Download the installer from the <a href="download.html">Download page</a> and run it on your Windows computer.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Trial starts automatically</strong> — On first launch, the 15-day free trial begins without any manual activation. You have full access immediately.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Add your first task</strong> — Use the "Add Task" option. Enter the task title, category, deadline, priority, and any relevant notes.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Set categories and deadlines</strong> — Assign each task to a category (Academic, Financial, Exam, etc.) and set a clear deadline for tracking.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Configure user roles</strong> — Set up Admin, Editor, and Viewer accounts according to your institutional staff structure.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Use the dashboard for monitoring</strong> — The dashboard gives you an at-a-glance view of active, overdue, and today's tasks every time you open the software.</p>
-        </div>
-        <div class="step-simple">
-          <p><strong>Import your license when ready</strong> — After purchasing a commercial license, go to About &amp; License section and import the signed license file to activate full access.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ ONLINE REFERENCE ════════════════════════════════════ -->
-  <section class="section">
-    <div class="container" style="max-width:800px">
-      <div class="section-header text-center">
-        <span class="subtitle">Reference</span>
-        <h2>Common Tasks at a Glance</h2>
-      </div>
-
-      <div class="feature-cards-grid" style="grid-template-columns:repeat(2,1fr)">
-        <div class="feature-card">
-          <div class="feature-card-icon blue" aria-hidden="true">➕</div>
-          <h4>Adding a Task</h4>
-          <p>Click "Add Task," fill in the title, select a category, set a deadline and priority, and save. The task appears immediately in your list and dashboard.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card-icon green" aria-hidden="true">📊</div>
-          <h4>Reading the Dashboard</h4>
-          <p>The dashboard shows total active tasks, overdue count, today's tasks, and category distribution. Check it daily to stay on top of institutional responsibilities.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card-icon orange" aria-hidden="true">🔍</div>
-          <h4>Searching &amp; Filtering</h4>
-          <p>Use the search bar to find tasks by keyword. Use filters to narrow by category, status (active/overdue/completed), or date range.</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-card-icon purple" aria-hidden="true">🛡️</div>
-          <h4>Importing a License</h4>
-          <p>Navigate to About &amp; License from the menu. Click "Import License," select your signed license file, and confirm. Full access is activated immediately.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ══ CTA BANNER ════════════════════════════════════════ -->
-  <section class="cta-banner">
-    <div class="container">
-      <h2>Need additional help?</h2>
-      <p>Our team provides installation support, training, and onboarding for institutional staff.</p>
-      <div class="btn-group" style="justify-content:center">
-        <a href="contact.html" class="btn btn-accent btn-lg">📩 Contact for Support</a>
-        <a href="download.html" class="btn btn-outline-white">Download Trial</a>
-      </div>
-    </div>
-  </section>
-
-  </main><!-- /#main-content -->
-
-  <div id="footer-placeholder"></div>
-  <script src="assets/js/components.js"></script>
-  <script src="assets/js/script.js"></script>
+            links.forEach(link => {
+                link.classList.remove('active');
+                link.classList.add('inactive');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                    link.classList.remove('inactive');
+                }
+            });
+        });
+    </script>
 </body>
 </html>

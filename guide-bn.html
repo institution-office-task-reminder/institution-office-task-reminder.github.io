@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="bn" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ব্যবহারকারী গাইড | Institution Office Task Reminder – ইন্টারঅ্যাক্টিভ ডকুমেন্টেশন</title>
+    <meta name="description" content="Institution Office Task Reminder এর সম্পূর্ণ ইন্টারঅ্যাক্টিভ ব্যবহারকারী গাইড। ইনস্টলেশন, টাস্ক ম্যানেজমেন্ট, রোল সেটআপ এবং সিঙ্ক কনফিগারেশন এর বিস্তারিত বাংলায় দেখুন।">
+    <meta name="author" content="Himadri Biswas">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://institution-office-task-reminder.github.io/guide-bn.html">
+
+    <!-- ══ Open Graph ══ -->
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Institution Office Task Reminder">
+    <meta property="og:url" content="https://institution-office-task-reminder.github.io/guide-bn.html">
+    <meta property="og:title" content="ব্যবহারকারী গাইড – Institution Office Task Reminder">
+    <meta property="og:description" content="ইনস্টিটিউশনাল টাস্ক ম্যানেজমেন্ট সফটওয়্যারের ইন্টারঅ্যাক্টিভ বাংলা ডকুমেন্টেশন। এতে রয়েছে ডাইনামিক সাইডবার নেভিগেশন, সেটআপ উইজার্ড গাইড এবং কাস্টম সার্চ রেফারেন্স।">
+    <meta property="og:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
+
+    <!-- ══ Twitter Card ══ -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ব্যবহারকারী গাইড – Institution Office Task Reminder">
+    <meta name="twitter:description" content="ইনস্টিটিউশনাল টাস্ক ম্যানেজমেন্ট সফটওয়্যারের ইন্টারঅ্যাক্টিভ বাংলা ডকুমেন্টেশন। এতে রয়েছে ডাইনামিক সাইডবার নেভিগেশন, সেটআপ উইজার্ড গাইড এবং কাস্টম সার্চ রেফারেন্স।">
+    <meta name="twitter:image" content="https://institution-office-task-reminder.github.io/assets/images/og-image.png">
+
+    <!-- ══ Favicon & Icons ══ -->
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/logo.png">
+
+    <!-- ══ SEO Multi-Language Headers ══ -->
+    <link rel="alternate" hreflang="en" href="https://institution-office-task-reminder.github.io/guide.html">
+    <link rel="alternate" hreflang="bn" href="https://institution-office-task-reminder.github.io/guide-bn.html">
+    <link rel="alternate" hreflang="x-default" href="https://institution-office-task-reminder.github.io/guide.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Tailwind Play CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            body { @apply text-slate-800 bg-slate-50/50 antialiased; }
+            h1, h2, h3, h4, h5 { @apply font-extrabold tracking-tight text-slate-900; }
+        }
+        @layer components {
+            .section-card { @apply bg-white rounded-3xl shadow-sm border border-slate-200 p-8 lg:p-12 mb-12 scroll-mt-24 transition-all hover:shadow-md hover:border-blue-200; }
+            .nav-item { @apply flex items-center gap-3 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all duration-200; }
+            .nav-item.active { @apply bg-blue-600 text-white shadow-lg shadow-blue-200; }
+            .nav-item.inactive { @apply text-slate-500 hover:bg-slate-100 hover:text-slate-900; }
+            .badge { @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold uppercase tracking-wider; }
+            .list-bullet { @apply flex items-start gap-3 mb-4 leading-relaxed; }
+            .list-bullet i { @apply mt-1 text-blue-500 shrink-0; }
+            .step-box { @apply p-6 bg-slate-50 rounded-2xl border border-slate-200 mb-6; }
+            .step-head { @apply text-blue-600 font-black text-xs uppercase tracking-[0.2em] mb-2 block; }
+        }
+        @media print {
+            .no-print { display: none !important; }
+            .section-card { border: none !important; box-shadow: none !important; padding: 0 !important; margin-bottom: 4rem !important; }
+            .page-break { page-break-before: always; }
+            body { background: white !important; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flex min-h-screen relative">
+        <!-- MOBILE MENU TRIGGER -->
+        <div class="lg:hidden fixed top-4 right-4 z-50 no-print">
+            <button id="mobile-menu-btn" class="p-3 bg-blue-600 text-white rounded-2xl shadow-xl shadow-blue-500/40 active:scale-95 transition-transform">
+                <i data-lucide="menu" id="menu-icon"></i>
+                <i data-lucide="x" id="close-icon" class="hidden"></i>
+            </button>
+        </div>
+
+        <!-- SIDEBAR -->
+        <aside id="sidebar" class="no-print fixed lg:sticky top-0 inset-y-0 left-0 z-40 w-80 bg-white border-r border-slate-200 h-screen p-8 transition-transform duration-300 -translate-x-full lg:translate-x-0 flex flex-col">
+            <a href="index.html" class="flex items-center gap-4 mb-6 hover:opacity-85 transition-opacity">
+                <div class="p-2.5 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/30">
+                    <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
+                </div>
+                <div>
+                    <h1 class="text-base leading-none text-slate-900 font-extrabold">অফিস টাস্ক</h1>
+                    <p class="text-[10px] text-slate-400 font-bold uppercase tracking-[0.2em] mt-1">v2.0.5.0</p>
+                </div>
+            </a>
+
+            <!-- Language Toggle -->
+            <div class="flex items-center justify-between px-4 py-2.5 mb-6 bg-slate-50 rounded-xl border border-slate-200 text-xs font-semibold no-print">
+                <span class="text-slate-500">ভাষা (Language):</span>
+                <div class="flex gap-2">
+                    <a href="guide.html" class="text-slate-500 hover:text-blue-600 transition-colors flex items-center gap-1">🇺🇸 EN</a>
+                    <span class="text-slate-300">|</span>
+                    <span class="text-blue-600 font-extrabold flex items-center gap-1">🇧🇩 BN</span>
+                </div>
+            </div>
+
+            <!-- Back to Site -->
+            <div class="mb-4 no-print">
+                <a href="index.html" class="flex items-center gap-2 text-xs font-bold text-slate-500 hover:text-blue-600 transition-colors">
+                    <i data-lucide="arrow-left" class="w-3.5 h-3.5"></i> মূল ওয়েবসাইটে ফিরুন
+                </a>
+            </div>
+
+            <nav class="flex-1 space-y-1 overflow-y-auto pr-2 custom-scrollbar" id="nav-container">
+                <a href="#introduction" class="nav-item active" data-section="introduction"><i data-lucide="info" class="w-4 h-4"></i> ভূমিকা</a>
+                <a href="#features" class="nav-item inactive" data-section="features"><i data-lucide="zap" class="w-4 h-4"></i> প্রধান বৈশিষ্ট্যসমূহ</a>
+                <a href="#requirements" class="nav-item inactive" data-section="requirements"><i data-lucide="terminal" class="w-4 h-4"></i> প্রয়োজনীয়তা</a>
+                <a href="#setup" class="nav-item inactive" data-section="setup"><i data-lucide="settings" class="w-4 h-4"></i> প্রথমবার সেটআপ</a>
+                <a href="#licensing" class="nav-item inactive" data-section="licensing"><i data-lucide="shield-check" class="w-4 h-4"></i> লাইসেন্সিং</a>
+                <a href="#structure" class="nav-item inactive" data-section="structure"><i data-lucide="database" class="w-4 h-4"></i> শিট স্ট্রাকচার</a>
+                <a href="#roles" class="nav-item inactive" data-section="roles"><i data-lucide="users" class="w-4 h-4"></i> রোল ও সিঙ্ক</a>
+                <a href="#telegram" class="nav-item inactive" data-section="telegram"><i data-lucide="send" class="w-4 h-4"></i> টেলিগ্রাম অটোমেশন</a>
+                <a href="#reminders" class="nav-item inactive" data-section="reminders"><i data-lucide="bell" class="w-4 h-4"></i> রিমাইন্ডারসমূহ</a>
+                <a href="#automation" class="nav-item inactive" data-section="automation"><i data-lucide="cloud" class="w-4 h-4"></i> ক্লাউড অটোমেশন</a>
+                <a href="#operation" class="nav-item inactive" data-section="operation"><i data-lucide="mouse-pointer-2" class="w-4 h-4"></i> দৈনন্দিন ব্যবহার</a>
+                <a href="#troubleshooting" class="nav-item inactive" data-section="troubleshooting"><i data-lucide="help-circle" class="w-4 h-4"></i> সমস্যা ও সমাধান</a>
+                <a href="#security" class="nav-item inactive" data-section="security"><i data-lucide="lock" class="w-4 h-4"></i> সেরা অনুশীলন</a>
+                <a href="#support" class="nav-item inactive" data-section="support"><i data-lucide="phone" class="w-4 h-4"></i> সাপোর্ট</a>
+            </nav>
+
+            <div class="mt-8 pt-8 border-t border-slate-100">
+                <button onclick="window.print()" class="w-full flex items-center justify-center gap-2 px-4 py-2.5 bg-slate-900 text-white rounded-xl text-sm font-bold shadow-xl shadow-slate-900/20 hover:scale-[1.02] transition-transform active:scale-95">
+                    <i data-lucide="printer" class="w-4 h-4"></i> পিডিএফ প্রিন্ট করুন
+                </button>
+            </div>
+        </aside>
+
+        <!-- MAIN -->
+        <main class="flex-1 px-6 lg:px-16 py-12 lg:py-24 max-w-5xl mx-auto overflow-hidden">
+            
+            <!-- HEADER / COVER -->
+            <header class="mb-32 text-center">
+                <div class="badge bg-blue-100 text-blue-700 mb-8">অফিসিয়াল ডকুমেন্টেশন</div>
+                <h1 class="text-5xl lg:text-7xl mb-6 leading-tight">INSTITUTION OFFICE <br /> <span class="text-blue-600 tracking-tighter">TASK REMINDER</span></h1>
+                <p class="text-xl text-slate-500 font-medium max-w-2xl mx-auto mb-12">ব্যবহারকারী গাইড সংস্করণ ২.০.৫.০</p>
+                
+                <div class="flex flex-wrap justify-center gap-3 mb-16">
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">স্মার্ট মোড</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">টেলিগ্রাম অটোমেশন</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">দৈনিক রিমাইন্ডার</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">ক্লাউড ট্রিগার</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">ইনবিল্ট ট্রায়াল</span>
+                    <span class="badge bg-slate-100 text-slate-600 border border-slate-200">ডিজিটাল লাইসেন্স</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                    <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm text-left">
+                        <label class="step-head">ডেভেলপার</label>
+                        <h3 class="text-2xl mb-1">Himadri Biswas</h3>
+                        <p class="text-slate-500 text-sm font-medium mb-6">সফটওয়্যার আর্কিটেক্ট</p>
+                        <div class="space-y-3">
+                            <a href="tel:+8809696196566" class="flex items-center gap-3 text-sm font-bold text-blue-600 hover:underline"><i data-lucide="phone" class="w-4 h-4"></i> +880 9696 196566</a>
+                            <a href="mailto:himadribiswas87@gmail.com" class="flex items-center gap-3 text-sm font-bold text-blue-600 hover:underline"><i data-lucide="mail" class="w-4 h-4"></i> himadribiswas87@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-8 rounded-[2.5rem] text-white text-left shadow-2xl shadow-slate-900/40 translate-y-4">
+                        <label class="step-head !text-blue-400">ডকুমেন্টেশন তথ্য</label>
+                        <div class="space-y-4">
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">সফটওয়্যারের নাম</p>
+                                <p class="font-bold">Institution Office Task Reminder</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">বর্তমান সংস্করণ</p>
+                                <p class="font-bold font-mono text-blue-400">2.0.5.0</p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] font-bold text-slate-500 uppercase tracking-widest mb-1">টার্গেট ব্যবহারকারী</p>
+                                <p class="text-xs font-medium text-slate-300">শিক্ষা প্রতিষ্ঠান, স্কুল, কলেজ, প্রশাসনিক কর্মকর্তা ও কর্মচারী</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 1. INTRODUCTION -->
+            <section id="introduction" class="section-card">
+                <h2 class="text-3xl mb-8 flex items-center gap-4"><i data-lucide="info" class="w-8 h-8 text-blue-600"></i> ১. ভূমিকা</h2>
+                <p class="text-lg text-slate-600 mb-10 leading-relaxed font-medium">Institution Office Task Reminder হলো একটি পেশাদার এবং ডেস্কটপ-ভিত্তিক টাস্ক ম্যানেজমেন্ট ও রিমাইন্ডার সিস্টেম, যা অফিস, স্কুল, কলেজ এবং বিভিন্ন প্রতিষ্ঠানের কাজের সুবিধার্থে ডিজাইন করা হয়েছে।</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 mb-10">
+                    <div class="space-y-4">
+                        <h4 class="text-sm font-black uppercase tracking-widest text-slate-400 mb-6">কাজের পরিধি</h4>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>ডেডলাইন ট্র্যাকিং:</strong> কাজের শেষ সময় সহজে মনিটর করুন।</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>অগ্রগতি পর্যবেক্ষণ:</strong> প্রতিটি কাজের চলমান অগ্রগতি ট্র্যাক করুন।</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>দৈনিক রিমাইন্ডার:</strong> স্বয়ংক্রিয় নোটিফিকেশন সাইকেল।</span></div>
+                    </div>
+                    <div class="space-y-4 pt-4 md:pt-0">
+                        <div class="list-bullet md:mt-11"><i data-lucide="check-circle-2"></i> <span><strong>ওভারডিউ ট্র্যাকিং:</strong> মিস হওয়া কাজের জন্য স্পষ্ট লাল রঙের ভিজ্যুয়াল ইন্ডিকেটর।</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>স্টাফ কোঅর্ডিনেশন:</strong> মাল্টি-ইউজার শেয়ারড কাজের পরিবেশ।</span></div>
+                        <div class="list-bullet"><i data-lucide="check-circle-2"></i> <span><strong>ওয়ার্কফ্লো ম্যানেজমেন্ট:</strong> কাজের লাইফসাইকেলের সুশৃঙ্খল ব্যবস্থাপনা।</span></div>
+                    </div>
+                </div>
+
+                <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
+                    <h4 class="text-amber-900 font-bold mb-4 flex items-center gap-2 italic"><i data-lucide="alert-circle"></i> গুরুত্বপূর্ণ নোটসমূহ</h4>
+                    <ul class="space-y-2 text-sm text-amber-800 font-medium">
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> টেলিগ্রাম ইন্টিগ্রেশন শুধুমাত্র ওয়ান-ওয়ে (আউটগোয়িং) নোটিফিকেশন পাঠাতে পারে</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> সিস্টেমে কোনো ইনকামিং কমান্ড পোলিং (/pending, /status) এর সুবিধা নেই</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> সফটওয়্যারটি স্বয়ংক্রিয়ভাবে রিমাইন্ডার এবং কাজের ডেডলাইন সারাংশ পাঠিয়ে থাকে</li>
+                        <li class="flex items-center gap-2"><div class="w-1 h-1 rounded-full bg-amber-500"></div> মাল্টি-ইউজার রিয়েল-টাইম সিঙ্ক্রোনাইজেশন পুরোপুরি সমর্থিত</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 2. KEY FEATURES -->
+            <section id="features" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="zap" class="w-8 h-8 text-blue-600"></i> ২. প্রধান বৈশিষ্ট্যসমূহ</h2>
+                
+                <div class="space-y-16">
+                    <div>
+                        <h3 class="subsection-title">প্রোডাক্টিভিটি কোর</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="layout" class="text-blue-500"></i> আধুনিক সামারি ড্যাশবোর্ড</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="filter" class="text-blue-500"></i> স্মার্ট ক্যাটাগরি ও ফিল্টারিং</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="calendar" class="text-blue-500"></i> ডিপ-লিঙ্ক ক্যালেন্ডার নেভিগেশন</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="refresh-cw" class="text-blue-500"></i> স্বয়ংক্রিয় ক্লাউড সিঙ্ক্রোনাইজেশন</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="user-check" class="text-blue-500"></i> রোল-ভিত্তিক অ্যাক্সেস কন্ট্রোল</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="clock" class="text-blue-500"></i> ওভারডিউ কাজের ম্যানেজমেন্ট</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="upload-cloud" class="text-blue-500"></i> স্বয়ংক্রিয় ড্রাইভ ফাইল আপলোড</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="languages" class="text-blue-500"></i> স্বদেশী বাংলা ইউনিকোড কিবোর্ড সাপোর্ট</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="download" class="text-blue-500"></i> উন্নত সিএসভি (CSV) এক্সপোর্ট</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="subsection-title">ক্লাউড ও সেটআপ</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="terminal" class="text-slate-400"></i> স্মার্ট মোড (গুগল অ্যাপস স্ক্রিপ্ট)</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="mouse-pointer" class="text-slate-400"></i> ইনবিল্ট সেটআপ উইজার্ড</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="activity" class="text-slate-400"></i> কানেকশন টেস্টিং সুবিধা</div>
+                            <div class="p-4 bg-white border border-slate-200 rounded-xl font-bold text-sm flex items-center gap-3"><i data-lucide="share" class="text-slate-400"></i> সেটিংস তথ্য সহজে শেয়ারিং</div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3 class="subsection-title">প্রতিষ্ঠান ম্যানেজমেন্ট</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>সরাসরি ইউজার ইন্টারফেস (UI) থেকে ফুল কনফিগারেশন</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>কাস্টম ব্র্যান্ডিং ও প্রাতিষ্ঠানিক লোগো যুক্ত করা</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>সেশন বা শিক্ষাবর্ষ এবং ক্যাটাগরি ব্যবস্থাপনা</span></div>
+                            <div class="list-bullet"><i data-lucide="check"></i> <span>আসন্ন কাজের মনিটরিং উইন্ডো কাস্টমাইজেশন</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. SYSTEM REQUIREMENTS -->
+            <section id="requirements" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="terminal" class="w-8 h-8 text-blue-600"></i> ৩. প্রয়োজনীয়তা</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="space-y-6">
+                        <label class="step-head">সর্বনিম্ন (Minimum)</label>
+                        <p class="text-sm font-bold text-slate-700">উইন্ডোজ পিসি (Windows PC)</p>
+                        <p class="text-xs text-slate-500 font-medium">১৩৬৬×৭৬৮ বা তার বেশি রেজোলিউশন</p>
+                        <p class="text-xs text-slate-500 font-medium">স্থিতিশীল ইন্টারনেট সংযোগ</p>
+                        <p class="text-xs text-slate-500 font-medium">গুগল শিট ব্যবহারের সুবিধা</p>
+                    </div>
+                    <div class="space-y-6">
+                        <label class="step-head">ঐচ্ছিক (Optional)</label>
+                        <p class="text-sm font-bold text-slate-700">টেলিগ্রাম বট টোকেন</p>
+                        <p class="text-xs text-slate-500 font-medium">মাল্টি-ইউজার ক্লাউড এনভায়রনমেন্ট</p>
+                    </div>
+                    <div class="space-y-6">
+                        <label class="step-head">সুপারিশকৃত (Recommended)</label>
+                        <p class="text-sm font-bold text-slate-700">উইন্ডোজ ১০ / ১১ (Windows 10/11)</p>
+                        <p class="text-xs text-slate-500 font-medium">ব্রডব্যান্ড ইন্টারনেট সংযোগ</p>
+                        <p class="text-xs text-slate-500 font-medium">ডেডিকেটেড প্রাতিষ্ঠানিক গুগল অ্যাকাউন্ট</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. FIRST-TIME SETUP -->
+            <section id="setup" class="section-card overflow-hidden">
+                <h2 class="text-3xl mb-6 flex items-center gap-4"><i data-lucide="settings" class="w-8 h-8 text-blue-600"></i> ৪. প্রথমবার সেটআপ</h2>
+                <p class="text-slate-600 mb-12 font-medium">প্রশাসকদের (Admin) সুবিধার্থে সফটওয়্যারে একটি চমৎকার সেটআপ উইজার্ড যুক্ত করা হয়েছে যা প্রথমবার ব্যবহারের কনফিগারেশন অনেক সহজ করে দেয়।</p>
+
+                <div class="relative pl-10 border-l-2 border-slate-100 space-y-12">
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center text-white text-xs font-bold ring-8 ring-white">১</div>
+                        <h4 class="font-bold text-lg mb-2">গুগল শিট তৈরি করুন</h4>
+                        <p class="text-sm text-slate-500">নতুন বা পূর্ববর্তী প্রাতিষ্ঠানিক কাজের ডাটাবেস বা গুগল শিট তৈরি করুন।</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">২</div>
+                        <h4 class="font-bold text-lg mb-2">অ্যাপস স্ক্রিপ্ট ওপেন করুন</h4>
+                        <p class="text-sm text-slate-500 font-mono">Extensions &rarr; Apps Script অপশনে যান।</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">৩</div>
+                        <h4 class="font-bold text-lg mb-2">ওয়েব অ্যাপ হিসেবে ডিপ্লয় করুন</h4>
+                        <p class="text-sm text-slate-500">Deploy as Web App সিলেক্ট করুন, Execute as-এ "Me" এবং Access-এ "Anyone" সিলেক্ট করে ডিপ্লয় সম্পন্ন করুন।</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">৪</div>
+                        <h4 class="font-bold text-lg mb-2">ডেস্কটপ অ্যাপের সাথে যুক্ত করুন</h4>
+                        <p class="text-sm text-slate-500">অ্যাপস স্ক্রিপ্টের ডিপ্লয়মেন্ট URL এবং সিকিউরিটি টোকেনটি কপি করে ডেস্কটপ অ্যাপের সেটিংসে পেস্ট করুন।</p>
+                    </div>
+                    <div class="relative">
+                        <div class="absolute -left-[3.1rem] top-0 w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center text-slate-600 text-xs font-bold ring-8 ring-white">৫</div>
+                        <h4 class="font-bold text-lg mb-2">টেস্ট এবং সম্পন্ন করুন</h4>
+                        <p class="text-sm text-slate-500">Settings থেকে "Test Connection" ক্লিক করুন, আপনার প্রতিষ্ঠানের ব্র্যান্ডিং লোগো আপলোড করুন এবং সিঙ্ক্রোনাইজেশন শুরু করুন।</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 5. TRIAL AND LICENSING -->
+            <section id="licensing" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="shield-check" class="w-8 h-8 text-blue-600"></i> ৫. ট্রায়াল ও লাইসেন্সিং</h2>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <div class="bg-blue-50/50 p-8 rounded-3xl border border-blue-100">
+                        <h3 class="text-xl text-blue-900 mb-6 flex items-center gap-2"><i data-lucide="clock"></i> ১৫ দিনের ফ্রি ট্রায়াল</h3>
+                        <p class="text-sm font-bold text-blue-800 mb-6">নতুন সেটআপে কোনো কোড ছাড়াই স্বয়ংক্রিয়ভাবে ১৫ দিনের ট্রায়াল শুরু হবে।</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>সব ফিচারে সম্পূর্ণ অ্যাক্সেস</span></div>
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>স্বয়ংক্রিয় ক্লাউড সিঙ্ক চালু</span></div>
+                            <div class="list-bullet !mb-2 !text-xs font-bold text-blue-700"><span>টেলিগ্রাম নোটিফিকেশন সুবিধা</span></div>
+                        </div>
+                        <div class="p-4 bg-white/60 rounded-xl border border-blue-200">
+                            <p class="text-[10px] font-black uppercase text-blue-400 mb-1">মেয়াদ শেষ হওয়ার পর</p>
+                            <p class="text-xs text-blue-900 font-bold leading-tight">সফটওয়্যারটি রিড-অনলি মোডে চলে যাবে। পূর্ণাঙ্গ ব্যবহারের জন্য একটি ভ্যালিড লাইসেন্স ফাইল ইম্পোর্ট করতে হবে।</p>
+                        </div>
+                    </div>
+                    <div class="bg-slate-900 p-8 rounded-3xl text-white shadow-xl shadow-slate-900/30">
+                        <h3 class="text-xl text-blue-400 mb-6 flex items-center gap-2"><i data-lucide="award"></i> ডিজিটাল সিগনেচার লাইসেন্স</h3>
+                        <p class="text-sm font-bold text-slate-300 mb-6">নিরাপদ প্রাতিষ্ঠানিক ব্যবহারের জন্য এনক্রিপ্টেড ডিজিটাল সিগনেচার ভ্যালিডেশন।</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="shield" class="w-4 h-4 text-blue-500"></i> সম্পূর্ণ টেম্পার-প্রুফ নিরাপত্তা</li>
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="users" class="w-4 h-4 text-blue-500"></i> আজীবন প্রাতিষ্ঠানিক লাইসেন্সিং</li>
+                            <li class="flex items-center gap-3 text-xs font-bold"><i data-lucide="smartphone" class="w-4 h-4 text-blue-500"></i> ডিভাইস-ভিত্তিক নিরাপদ অ্যাক্টিভেশন</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. SHEET STRUCTURE -->
+            <section id="structure" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="database" class="w-8 h-8 text-blue-600"></i> ৬. গুগল শিটের গঠন</h2>
+                <p class="text-slate-500 font-medium mb-12 italic">সফটওয়্যারটি ব্যাকগ্রাউন্ডে স্বয়ংক্রিয়ভাবে প্রয়োজনীয় শিটগুলো বজায় রাখে। ম্যানুয়ালি শিটের কোনো কলাম বা ফরম্যাট পরিবর্তন না করার পরামর্শ দেওয়া হচ্ছে।</p>
+
+                <div class="space-y-8">
+                    <div class="p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                        <div class="flex items-center justify-between mb-4">
+                            <h4 class="font-bold text-lg">মূল ডাটাবেস শিট — Task</h4>
+                            <span class="badge bg-green-100 text-green-700">মূল ডাটাবেস</span>
+                        </div>
+                        <p class="text-xs text-slate-500 font-bold uppercase tracking-widest mb-4">ফিল্ড বা কলামসমূহ</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">আইডি (ID)</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">ক্যাটাগরি</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">শ্রেণি/শিক্ষাবর্ষ</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">কাজের নাম</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">শুরুর তারিখ</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">ডেডলাইন</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">স্ট্যাটাস</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">দায়িত্বপ্রাপ্ত ব্যক্তি</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">মন্তব্য</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">উৎস লিঙ্ক (Drive File)</span>
+                            <span class="bg-white px-3 py-1 rounded-md text-[10px] font-bold border border-slate-200">যোগ করেছেন</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-6 border border-slate-100 rounded-2xl">
+                            <h5 class="font-bold mb-2">Config (কনফিগ শিট)</h5>
+                            <p class="text-xs text-slate-500 font-medium">প্রতিষ্ঠানের ব্র্যান্ডিং লোগো লিঙ্ক, ক্যাটাগরি এবং ড্রপডাউন সেটিংসের ডাটা সংরক্ষিত থাকে।</p>
+                        </div>
+                        <div class="p-6 border border-slate-100 rounded-2xl">
+                            <h5 class="font-bold mb-2">Staff_Contacts (স্টাফ শিট)</h5>
+                            <p class="text-xs text-slate-500 font-medium">কর্মকর্তা-কর্মচারীদের নামের সাথে তাদের নির্দিষ্ট টেলিগ্রাম চ্যাট আইডি লিংক করা থাকে।</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. ROLES & MULTI-USER -->
+            <section id="roles" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="users" class="w-8 h-8 text-blue-600"></i> ৭. রোল ও সিঙ্ক্রোনাইজেশন</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="p-6 bg-slate-900 rounded-3xl text-white">
+                        <h4 class="font-black text-blue-400 text-xs uppercase tracking-widest mb-6">অ্যাডমিন (Admin)</h4>
+                        <p class="text-sm font-bold opacity-80 leading-relaxed">সম্পূর্ণ অ্যাক্সেস, ক্লাউড অটোমেশন কনফিগারেশন, এবং ব্যাকআপ সেটিংস পরিবর্তন করার অধিকার।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl">
+                        <h4 class="font-black text-blue-600 text-xs uppercase tracking-widest mb-6">এডিটর (Editor)</h4>
+                        <p class="text-sm font-bold text-slate-600 leading-relaxed">নতুন কাজের এন্ট্রি তৈরি, এডিট এবং কাজের অগ্রগতি স্ট্যাটাস আপডেট করার অনুমতি।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl">
+                        <h4 class="font-black text-slate-400 text-xs uppercase tracking-widest mb-6">ভিউয়ার (Viewer)</h4>
+                        <p class="text-sm font-bold text-slate-400 leading-relaxed">শুধুমাত্র রিড-অনলি মোডে চলমান কাজের তালিকা এবং ড্যাশবোর্ড পর্যবেক্ষণ।</p>
+                    </div>
+                </div>
+                <div class="p-8 bg-blue-600 rounded-[2rem] text-white">
+                    <h4 class="font-bold mb-4 flex items-center gap-3">৭.১ মাল্টি-ইউজার ডিপ্লয়মেন্ট</h4>
+                    <p class="text-sm font-medium text-blue-100 mb-6 leading-relaxed">অন্যান্য কর্মকর্তাদের কম্পিউটারে অ্যাপটি ইনস্টল করে অ্যাপস স্ক্রিপ্ট ইউআরএল এবং সিকিউরিটি টোকেনটি প্রদান করুন। প্রতিটি ব্যবহারকারীর কাজের স্বচ্ছ অডিট ট্র্যাকিং বজায় রাখার জন্য সেটিংস থেকে একটি অনন্য "Display Name" সেট করতে বলুন।</p>
+                </div>
+            </section>
+
+            <!-- 8. TELEGRAM -->
+            <section id="telegram" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="send" class="w-8 h-8 text-blue-600"></i> ৮. টেলিগ্রাম অটোমেশন</h2>
+                <div class="card p-0 overflow-hidden mb-0">
+                    <div class="bg-blue-600 p-8 text-white relative">
+                        <i data-lucide="message-circle" class="absolute right-8 top-8 w-16 h-16 opacity-10"></i>
+                        <label class="step-head !text-blue-200">৮.১ বট কন্ট্রোল</label>
+                        <h3 class="text-2xl mb-4">কেন্দ্রীয় সিকিউর বট কন্ট্রোল</h3>
+                        <p class="text-sm text-blue-100 font-medium leading-relaxed max-w-xl">অ্যাডমিনগণ তাদের টেলিগ্রাম বট টোকেন সরাসরি ডেস্কটপ অ্যাপের সেটিংসের মাধ্যমে অ্যাপস স্ক্রিপ্ট প্রোপার্টিজে নিরাপদে সংরক্ষণ করতে পারেন, যাতে গুগল শিটে টোকেনটি উন্মুক্ত না থাকে।</p>
+                    </div>
+                    <div class="p-10 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
+                        <div>
+                            <h4 class="font-bold mb-4">সমর্থিত নোটিফিকেশনসমূহ</h4>
+                            <div class="space-y-3">
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="share-2" class="w-4 h-4"></i> কাজের অ্যাসাইনমেন্ট অ্যালার্ট</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="repeat" class="w-4 h-4"></i> অগ্রগতি স্ট্যাটাস আপডেট</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="check" class="w-4 h-4"></i> কাজ সম্পন্ন হওয়ার নোটিফিকেশন</div>
+                                <div class="list-bullet !text-xs font-bold text-slate-600 mb-0"><i data-lucide="list" class="w-4 h-4"></i> দৈনিক ডেডলাইন সারাংশ নোটিফিকেশন</div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">৮.২ কন্টাক্ট ম্যাপিং ও সেটআপ</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed mb-6">স্টাফদের নামের সাথে তাদের নির্দিষ্ট টেলিগ্রাম চ্যাট আইডি লিংক করতে ক্লাউড সেটিংসের **Manage Contacts** অপশনটি ব্যবহার করুন।</p>
+                            
+                            <div class="space-y-6">
+                                <div class="p-5 bg-blue-50 rounded-2xl border border-blue-100">
+                                    <h5 class="text-xs font-black uppercase tracking-widest text-blue-600 mb-3">কীভাবে টেলিগ্রাম বট তৈরি করবেন?</h5>
+                                    <ol class="text-xs font-bold text-blue-900 space-y-2 list-decimal pl-4">
+                                        <li>টেলিগ্রামে <strong>@BotFather</strong> লিখে সার্চ করুন।</li>
+                                        <li>বটে <code>/newbot</code> লিখে পাঠান এবং নির্দেশাবলী অনুসরণ করুন।</li>
+                                        <li>শেষ ধাপে প্রাপ্ত <strong>API Token</strong>-টি কপি করুন।</li>
+                                        <li>টোকেনটি সফটওয়্যারের ক্লাউড সেটিংসে পেস্ট করে সেভ করুন।</li>
+                                    </ol>
+                                </div>
+                                <div class="p-5 bg-slate-50 rounded-2xl border border-slate-200">
+                                    <h5 class="text-xs font-black uppercase tracking-widest text-slate-500 mb-3">চ্যাট আইডি (Chat ID) কীভাবে পাবেন?</h5>
+                                    <ol class="text-xs font-bold text-slate-700 space-y-2 list-decimal pl-4">
+                                        <li>টেলিগ্রামে <strong>@GetMyID_Bot</strong> লিখে সার্চ করুন।</li>
+                                        <li>বটটি চালু (Start) করলে আপনার আইডি দেখতে পাবেন।</li>
+                                        <li>এই আইডিটি <strong>Manage Contacts</strong> এ ব্যবহারকারীর নামের সাথে যুক্ত করুন।</li>
+                                    </ol>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 bg-amber-50 p-6 rounded-2xl border border-amber-100">
+                                <label class="step-head !text-amber-600">নিরাপত্তা সতর্কতা</label>
+                                <p class="text-xs font-bold text-amber-900 leading-relaxed italic">টেলিগ্রাম নোটিফিকেশন ফিচারের জন্য একটি সক্রিয় বাণিজ্যিক লাইসেন্স এবং ডিভাইস অ্যাক্টিভেশন প্রয়োজন।</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 9. REMINDERS -->
+            <section id="reminders" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="bell" class="w-8 h-8 text-blue-600"></i> ৯. রিমাইন্ডারসমূহ</h2>
+                <div class="space-y-8">
+                    <div class="flex gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm transition-all hover:bg-white">
+                        <div class="shrink-0 w-14 h-14 rounded-2xl bg-blue-600 flex items-center justify-center text-white"><i data-lucide="alarm-clock"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">৯.১ দৈনিক ডেডলাইন সামারি নোটিফিকেশন</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-4">আগামী ০-৩ দিনের মধ্যে শেষ হতে যাওয়া কাজের জন্য প্রতিদিন স্বয়ংক্রিয়ভাবে সংক্ষিপ্ত নোটিফিকেশন পাঠানো হয়। এতে ইতিমধ্যে সম্পন্ন হওয়া কাজ অন্তর্ভুক্ত থাকে না।</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm transition-all hover:bg-white">
+                        <div class="shrink-0 w-14 h-14 rounded-2xl bg-slate-900 flex items-center justify-center text-white"><i data-lucide="clock"></i></div>
+                        <div>
+                            <h4 class="text-lg font-bold mb-2">৯.২ একাধিক শিডিউল ও ক্যাচ-আপ উইন্ডো</h4>
+                            <p class="text-sm text-slate-500 font-medium mb-2">দিনে ৩টি পর্যন্ত রিমাইন্ডার শিডিউল সেট করতে পারবেন। "Catch-up window" নিশ্চিত করে যে যদি কোনো কারণে অ্যাপটি কিছুটা দেরিতেও ওপেন হয়, তবুও ব্যাকগ্রাউন্ডে মিস হওয়া নোটিফিকেশনগুলো সাথে সাথে পাঠানো হবে।</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 10. AUTOMATION -->
+            <section id="automation" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="cloud" class="w-8 h-8 text-blue-600"></i> ১০. ক্লাউড অটোমেশন</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="p-8 bg-white border border-slate-200 rounded-3xl shadow-sm">
+                        <h3 class="text-blue-600 font-bold mb-6 italic">১০.১ স্বয়ংক্রিয় অটোমেশন সেটআপ</h3>
+                        <p class="text-xs font-bold text-slate-500 uppercase tracking-widest mb-6">সহজ ও ওয়ান-ক্লিক ইনস্টলেশন</p>
+                        <ul class="space-y-4">
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="calendar" class="w-5 h-5 text-blue-500"></i> দৈনিক রিমাইন্ডার ট্রিগার</li>
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="refresh-cw" class="w-5 h-5 text-blue-500"></i> সাপ্তাহিক রক্ষণাবেক্ষণ ট্রিগার</li>
+                            <li class="flex items-center gap-3 text-xs font-bold text-slate-700 leading-tight"><i data-lucide="archive" class="w-5 h-5 text-blue-500"></i> সাপ্তাহিক আর্কাইভ ট্রিগার (৯০ দিনের পুরনো কাজ আর্কাইভ করা)</li>
+                        </ul>
+                    </div>
+                    <div class="p-8 bg-slate-50 rounded-3xl border border-slate-200">
+                        <h4 class="font-bold mb-4">১০.২ ম্যানুয়াল টেস্টিং ও রান</h4>
+                        <div class="space-y-2">
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">দৈনিক রিমাইন্ডার এখনই রান করুন</button>
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">রক্ষণাবেক্ষণ এখনই রান করুন</button>
+                            <button class="w-full bg-white border border-slate-200 text-[10px] font-black uppercase text-slate-500 py-3 rounded-xl hover:bg-slate-100 transition-colors">আর্কাইভ এখনই রান করুন</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 11. OPERATION -->
+            <section id="operation" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="mouse-pointer-2" class="w-8 h-8 text-blue-600"></i> ১১. দৈনন্দিন ব্যবহার ও পরিচালনা</h2>
+                <div class="space-y-12">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">১১.১ সিঙ্ক্রোনাইজেশন</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">ব্যাকগ্রাউন্ডে স্বয়ংক্রিয়ভাবে ডাটা সিঙ্ক করার জন্য Settings -> General থেকে নির্দিষ্ট সময় ব্যবধান (১০ সেকেন্ড থেকে ৩০ মিনিট) সেট করতে পারেন। এছাড়া "Sync Now" ক্লিক করে সাথে সাথে সিঙ্ক করা সম্ভব।</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">১১.২ বিরোধ নিষ্পত্তি</h4>
+                            <div class="bg-red-50 border border-red-100 p-4 rounded-xl text-xs font-bold text-red-900 leading-tight">
+                                একাধিক ব্যবহারকারী একই কাজের পরিবর্তন করলে বিরোধ নিষ্পত্তি ডায়ালগ ওপেন হয়। অপশনসমূহ: "Keep Offline Edit" (অফলাইন পরিবর্তন রাখা), "Overwrite with Server" (সার্ভারের ডাটা রাখা), অথবা "Restore As New Task" (নতুন কাজ হিসেবে সংরক্ষণ)।
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৩ ফাইল সংযুক্তি (Drive Upload)</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">টাস্ক যোগ করার সময় "Browse..." বাটনে ক্লিক করে ফাইল সিলেক্ট করুন। সফটওয়্যারটি স্বয়ংক্রিয়ভাবে ফাইলটি গুগল ড্রাইভে আপলোড করবে এবং তার শেয়ার লিঙ্ক ডাটাবেসে সেভ করবে।</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৪ বাংলা ইউনিকোড কিবোর্ড সাপোর্ট</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">সফটওয়্যারে বিজয় এবং অভ্র কিবোর্ডের মাধ্যমে সরাসরি বাংলা টাইপ করার সুবিধা রয়েছে। এর জন্য বাড়তি কোনো কিম্যাপ কনফিগারেশনের প্রয়োজন নেই।</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৫ কাজের বিভিন্ন ভিউ</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">আজকের কাজ</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">আসন্ন কাজ</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">অতিক্রান্ত (Overdue)</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">চলতি (Active)</span>
+                                <span class="bg-slate-100 px-3 py-1.5 rounded-lg text-xs font-bold text-slate-600">সম্পন্ন কাজ</span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৬ ডাটা এক্সপোর্ট</h4>
+                            <p class="text-xs font-medium text-slate-600 leading-relaxed">বর্তমান কাজের তালিকাকে সিএসভি (CSV) ফাইল হিসেবে সেভ করতে টুলবারের "Export" বাটনটি ব্যবহার করুন। এক্সপোর্ট করার আগে কাস্টম ডেট ফিল্টার প্রয়োগ করতে পারেন।</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 border-b border-slate-100 pb-12">
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৭ ব্র্যান্ডিং ও প্রতিষ্ঠানের লোগো</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">সেটিংসের ব্র্যান্ডিং অপশন থেকে প্রতিষ্ঠানের **PNG লোগো** আপলোড করুন এবং নাম সেট করুন। এটি সফটওয়্যারের হেডার ও উইন্ডো টাইটেল বারে প্রদর্শিত হবে।</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">১১.৮ অ্যাডমিন প্যানেল কন্ট্রোল</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">অ্যাডমিনরা সরাসরি "Institution" ট্যাব থেকে ক্যাটাগরি, গুরুত্বের স্তর, বর্তমান শিক্ষাবর্ষ (Session) এবং ডিফল্ট দায়িত্বপ্রাপ্ত ব্যক্তি পরিবর্তন করতে পারবেন।</p>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                         <div>
+                            <h4 class="font-bold mb-4">১১.৯ সাধারণ সেটিংস</h4>
+                            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest mb-2 leading-none italic">স্টার্টআপ ও মিনিমাইজেশন</p>
+                            <p class="text-xs font-medium text-slate-600 leading-relaxed">কম্পিউটার চালুর সাথে সাথে স্বয়ংক্রিয়ভাবে সফটওয়্যার ওপেন করা (Start on Boot) এবং ব্যাকগ্রাউন্ডে মিনিমাইজড (System Tray) করে রাখার অপশন জেনারেল সেটিংস থেকে কনফিগার করা যায়।</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold mb-4">১১.১০ ব্যবহারকারীর নাম</h4>
+                            <p class="text-sm font-medium text-slate-500 leading-relaxed">সেটিংসের জেনারেল সেকশন থেকে আপনার নিজস্ব "Display Name" সেট করুন। এর ফলে গুগল শিটের অডিট ট্র্যাকিংয়ে পরিষ্কার দেখা যাবে কে কাজটি তৈরি বা সম্পাদন করেছেন।</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 13. TROUBLESHOOTING -->
+            <section id="troubleshooting" class="section-card">
+                <h2 class="text-3xl mb-12 flex items-center gap-4"><i data-lucide="help-circle" class="w-8 h-8 text-blue-600"></i> ১৩. সমস্যা ও সমাধান</h2>
+                <div class="space-y-4">
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> কানেকশন টেস্ট ব্যর্থ হওয়া
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">অ্যাপস স্ক্রিপ্টের ডিপ্লয়মেন্ট URL এবং সিকিউরিটি টোকেন আবার যাচাই করুন। স্ক্রিপ্ট ডিপ্লয় করার সময় "Access: Anyone" সিলেক্ট করা হয়েছে কি না তা নিশ্চিত করুন।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> টেলিগ্রাম নোটিফিকেশন না যাওয়া
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">স্টাফ কন্টাক্টসে সঠিক টেলিগ্রাম চ্যাট আইডি লিংক করা আছে কি না এবং বট টোকেনটি প্রোপার্টিজে সেভ করা হয়েছে কি না নিশ্চিত করুন।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> সিঙ্ক বিরোধ (Conflict) শনাক্ত হওয়া
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">যখন দুজন ব্যবহারকারী একসাথে একই কাজ এডিট করেন তখন এটি ঘটে। ডাটা ঠিক রাখতে "Overwrite with Server" অথবা "Restore As New" অপশন বেছে নিন।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> ডিভাইস অ্যাক্টিভেশন প্রয়োজন হওয়া
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">এর অর্থ আপনার ১৫ দিনের ট্রায়ালের মেয়াদ শেষ হয়েছে অথবা আপনি সম্পূর্ণ নতুন কোনো কম্পিউটারে অ্যাপটি চালাচ্ছেন। লাইসেন্স ফাইল পেতে ডেভেলপারের সাথে যোগাযোগ করুন।</p>
+                    </div>
+                    <div class="p-6 bg-white border border-slate-200 rounded-3xl shadow-sm group">
+                        <h4 class="font-bold text-red-600 mb-2 flex items-center gap-3">
+                            <i data-lucide="alert-triangle" class="w-5 h-5 group-hover:animate-pulse"></i> ফাইল আপলোড টাইমআউট
+                        </h4>
+                        <p class="text-sm text-slate-600 font-medium pl-8">ইন্টারনেট সংযোগ ধীরগতির হলে বড় ফাইলের ক্ষেত্রে এটি হতে পারে। সফটওয়্যারে চংকড (Chunked) আপলোড রয়েছে, তবুও স্থিতিশীল ইন্টারনেট সংযোগ ব্যবহার করা উত্তম।</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 14. BEST PRACTICES -->
+            <section id="security" class="section-card !bg-slate-900 border-none !text-white">
+                <h2 class="text-3xl mb-12 flex items-center gap-4 !text-white"><i data-lucide="lock" class="w-8 h-8 text-blue-400"></i> ১৪. সেরা অনুশীলন ও নির্দেশনাবলী</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> সবসময় ডিপ্লয়মেন্টের জন্য সেটিংসের "Setup Wizard" ব্যবহার করুন।</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> অ্যাডমিন অ্যাক্সেস শুধুমাত্র বিশ্বাসযোগ্য প্রধান কম্পিউটারে সীমাবদ্ধ রাখুন।</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> ব্যাকগ্রাউন্ড স্বয়ংক্রিয় সিঙ্কের সময়সীমা ৫-১৫ মিনিটের মধ্যে রাখুন।</li>
+                    </ul>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> টেলিগ্রাম বট টোকেন গুগল শিটের সাধারণ সেলে না রেখে স্ক্রিপ্ট প্রোপার্টিজে রাখুন।</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> কাজের স্ট্যাটাস আপডেট করার ক্ষেত্রে প্রাতিষ্ঠানিকভাবে দলগত একই নিয়ম অনুসরণ করুন।</li>
+                        <li class="flex items-start gap-4 text-sm font-bold text-slate-300 leading-relaxed"><i data-lucide="shield-check" class="text-blue-500 mt-1"></i> সফটওয়্যারের মূল সাইনড লাইসেন্স ফাইলটি সবসময় নিরাপদে সংরক্ষণ করুন।</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- 15. SUPPORT -->
+            <section id="support" class="section-card mb-32">
+                <div class="bg-white rounded-[3rem] p-12 border border-slate-200 shadow-xl shadow-blue-900/5 text-center relative overflow-hidden">
+                    <div class="absolute -bottom-20 -right-20 w-64 h-64 bg-blue-50 rounded-full blur-3xl opacity-50"></div>
+                    <h2 class="text-3xl mb-4">অফিশিয়াল প্রোডাক্ট সাপোর্ট</h2>
+                    <p class="text-slate-500 font-medium mb-10 max-w-sm mx-auto">লাইসেন্সিং, ক্লাউড ডিপ্লয়মেন্ট এবং বট অটোমেশন সংক্রান্ত যে কোনো কারিগরি সহায়তায় আমাদের সাথে যোগাযোগ করুন।</p>
+                    
+                    <div class="flex flex-wrap justify-center gap-10 mb-16">
+                        <div class="text-left bg-slate-50 px-8 py-4 rounded-2xl border border-slate-100">
+                            <p class="text-[10px] font-black uppercase text-slate-400 mb-1">স্থপতি (Architect)</p>
+                            <p class="font-extrabold text-slate-900">Himadri Biswas</p>
+                        </div>
+                        <div class="text-left bg-slate-50 px-8 py-4 rounded-2xl border border-slate-100">
+                            <p class="text-[10px] font-black uppercase text-slate-400 mb-1">সাপোর্ট ফোন</p>
+                            <p class="font-extrabold text-blue-600">+880 9696 196566</p>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-[10px] font-bold text-slate-400 uppercase tracking-widest pb-12">
+                        <span>ইনস্টলেশন</span>
+                        <span>স্মার্ট সেটআপ</span>
+                        <span>টেলিগ্রাম বট</span>
+                        <span>লাইসেন্সিং</span>
+                    </div>
+
+                    <div class="pt-8 border-t border-slate-100 text-[11px] font-black text-slate-300 uppercase tracking-[0.6em]">
+                        অফিস সলিউশন সিস্টেমস &bull; ২০২৬
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        const menuIcon = document.getElementById('menu-icon');
+        const closeIcon = document.getElementById('close-icon');
+
+        menuBtn.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+            menuIcon.classList.toggle('hidden');
+            closeIcon.classList.toggle('hidden');
+        });
+
+        // Close sidebar on link click (mobile)
+        const navLinks = document.querySelectorAll('.nav-item');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth < 1024) {
+                    sidebar.classList.add('-translate-x-full');
+                    menuIcon.classList.remove('hidden');
+                    closeIcon.classList.add('hidden');
+                }
+            });
+        });
+
+        // Scrollspy
+        const links = document.querySelectorAll('.nav-item');
+        const sections = document.querySelectorAll('section');
+
+        window.addEventListener('scroll', () => {
+            let current = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                link.classList.add('inactive');
+                if (link.getAttribute('data-section') === current) {
+                    link.classList.add('active');
+                    link.classList.remove('inactive');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
