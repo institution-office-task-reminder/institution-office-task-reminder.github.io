@@ -32,6 +32,9 @@
     <link rel="alternate" hreflang="bn" href="https://institution-office-task-reminder.github.io/guide-bn.html">
     <link rel="alternate" hreflang="x-default" href="https://institution-office-task-reminder.github.io/guide.html">
 
+    <!-- ══ Main Site Stylesheet (Dynamic Header Sync) ══ -->
+    <link rel="stylesheet" href="assets/css/style.css">
+
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,8 +57,15 @@
     </script>
     <style type="text/tailwindcss">
         @layer base {
-            body { @apply text-slate-800 bg-slate-50/50 antialiased; }
-            h1, h2, h3, h4, h5 { @apply font-extrabold tracking-tight text-slate-900; }
+            body { 
+                @apply text-slate-800 bg-slate-50/50 antialiased; 
+                background-color: rgb(248 250 252 / 0.5) !important;
+                font-family: 'Plus Jakarta Sans', sans-serif !important;
+            }
+            h1, h2, h3, h4, h5, h6 { 
+                @apply font-extrabold tracking-tight text-slate-900; 
+                font-family: 'Plus Jakarta Sans', sans-serif !important;
+            }
         }
         @layer components {
             .section-card { @apply bg-white rounded-3xl shadow-sm border border-slate-200 p-8 lg:p-12 mb-12 scroll-mt-24 transition-all hover:shadow-md hover:border-blue-200; }
@@ -78,17 +88,20 @@
 </head>
 <body>
 
+    <!-- Navigation (injected by components.js) -->
+    <div id="nav-placeholder"></div>
+
     <div class="flex min-h-screen relative">
-        <!-- MOBILE MENU TRIGGER -->
-        <div class="lg:hidden fixed top-4 right-4 z-50 no-print">
-            <button id="mobile-menu-btn" class="p-3 bg-blue-600 text-white rounded-2xl shadow-xl shadow-blue-500/40 active:scale-95 transition-transform">
-                <i data-lucide="menu" id="menu-icon"></i>
-                <i data-lucide="x" id="close-icon" class="hidden"></i>
+        <!-- MOBILE MENU TRIGGER (FAB in bottom-right corner) -->
+        <div class="lg:hidden fixed bottom-6 right-6 z-[1100] no-print">
+            <button id="mobile-menu-btn" class="p-4 bg-blue-600 text-white rounded-full shadow-2xl shadow-blue-500/40 active:scale-95 transition-transform flex items-center justify-center">
+                <i data-lucide="menu" id="menu-icon" class="w-6 h-6"></i>
+                <i data-lucide="x" id="close-icon" class="hidden w-6 h-6"></i>
             </button>
         </div>
 
-        <!-- SIDEBAR -->
-        <aside id="sidebar" class="no-print fixed lg:sticky top-0 inset-y-0 left-0 z-40 w-80 bg-white border-r border-slate-200 h-screen p-8 transition-transform duration-300 -translate-x-full lg:translate-x-0 flex flex-col">
+        <!-- SIDEBAR (desktop: sticky under global header | mobile: full height overlay) -->
+        <aside id="sidebar" class="no-print fixed lg:sticky lg:top-[70px] inset-y-0 left-0 z-[1050] lg:z-40 w-80 bg-white border-r border-slate-200 h-screen lg:h-[calc(100vh-70px)] p-8 transition-transform duration-300 -translate-x-full lg:translate-x-0 flex flex-col">
             <a href="index.html" class="flex items-center gap-4 mb-6 hover:opacity-85 transition-opacity">
                 <div class="p-2.5 bg-blue-600 rounded-xl text-white shadow-lg shadow-blue-500/30">
                     <i data-lucide="layout-dashboard" class="w-6 h-6"></i>
@@ -664,6 +677,8 @@
     </div>
 
     <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+    <script src="assets/js/script.js"></script>
     <script>
         lucide.createIcons();
 
